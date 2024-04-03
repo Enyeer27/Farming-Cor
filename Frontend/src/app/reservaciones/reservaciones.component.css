@@ -1,0 +1,60 @@
+body {
+    background-color: #dc3545;
+    color: #343a40;
+}
+
+#arriba {
+    margin-bottom: 20px;
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+
+.table thead th {
+    vertical-align: middle;
+}
+
+.table-striped-columns tbody tr:nth-of-type(odd) {
+    background-color: rgba(108, 117, 125, 0.1);
+}
+
+.bg-info,
+.bg-success,
+.bg-danger {
+    border-radius: 5px;
+}
+
+.bg-info {
+    background-color: #17a2b8;
+}
+
+.bg-success {
+    background-color: #28a745;
+}
+
+.bg-danger {
+    background-color: #dc3545;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.tabla-reservaciones {
+    background-color: white;
+}
+.table-bordered-custom {
+    border: 2px solid #ccc; 
+}

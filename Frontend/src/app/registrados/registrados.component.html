@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARMING-COR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Estilos adicionales */
+        .navbar-brand img {
+            margin-right: 10px; 
+        }
+
+        .navbar-nav .nav-link {
+            color: #000; 
+        }
+
+        .btn-warning {
+            background-color: #ffc107; 
+            border-color: #ffc107;
+        }
+
+        .btn-warning:hover {
+            background-color: #ffb800; 
+            border-color: #ffb800; 
+        }
+    </style>
+</head>
+
+<body class="p-3 mb-2 bg-warning text-black bg-opacity-10">
+
+    <div>
+        <div id="arriba">
+            <nav class="navbar navbar-expand-lg p-3 mb-2 bg-warning bg-gradient text-white bg-opacity-50">
+                <div class="container-fluid">
+                    <a class="navbar-brand"><img src="./assets/logo.png" alt="Logo" height="50px" width="50px"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-warning text-body" routerLink="/pag-prin-admin">Volver</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <h1 class="text-center">Usuarios registrados en el sistema</h1>
+    <br>
+    <div class="col-md-6 offset-md-3">
+        <form class="mb-3">
+            <div class="input-group">
+                <button class="btn btn-warning" type="button" style="width: 85px; height:37.5px;">Buscar</button>
+                <select class="form-control" style="width: calc(100% - 100px);" (change)="filtrarDatos($event)">
+                    <option value="todos">Usuarios...</option>
+                    <option value="clientes">Clientes</option>
+                    <option value="proveedores">Proveedores</option>
+                </select> 
+            </div>
+        </form>
+    </div>
+    
+    <div class="container my-3">
+        <table class="table table-bordered table-striped">
+            <thead class="table-warning">
+                <tr>
+                    <th>Rol</th>
+                    <th>NUMERO DE DOCUMENTO</th>
+                    <th>PRIMER NOMBRE</th>
+                    <th>SEGUNDO NOMBRE</th>
+                    <th>PRIMER APELLIDO</th>
+                    <th>SEGUNDO APELLIDO</th>
+                    <th>CORREO ELECTRÓNICO</th>
+                    <th>ESTADO</th>
+                    <th>OPCIÓN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dato of dato | async">
+                    <td> {{dato.fk_tipo_rol}}</td>
+                    <td>{{ dato.Id_Dato_Personal }}</td>
+                    <td>{{ dato.nombre1 }}</td>
+                    <td>{{ dato.nombre2 }}</td>
+                    <td>{{ dato.apellido1 }}</td>
+                    <td>{{ dato.apellido2 }}</td>
+                    <td>{{ dato.correo }}</td>
+                    <td>{{ dato.estado }}</td>
+                    <td><a [routerLink]="['../form-registrados/', dato.Id_Dato_Personal]"><button class="btn btn-warning">Modificar</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br><br><br><br><br><br>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+
+</html>
